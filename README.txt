@@ -16,3 +16,6 @@ the custom XHTML element w3-include-xhtml is operating.
 In detail, a header HEADER, a sidebar SIDEBAR and a footer FOOTER shall be
 visible via three w3-include-xhtml elements.
 
+License
+========
+This work is licensed under the 'New BSD 2-Clause License'.
