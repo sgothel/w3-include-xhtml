@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+[
+  <!ELEMENT w3-include-xhtml EMPTY>
+  <!ATTLIST w3-include-xhtml href CDATA #REQUIRED>
+]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>w3-include-xhtml index</title>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="js/w3-include-xhtml.js"></script>
+    </head>
+
+    <body>
+        <w3-include-xhtml href="header-l0-inc.html"/>
+
+            <div id="main">
+                <w3-include-xhtml href="sidebar-l0-inc.html"/>
+
+                <div id="text">
+                    <h1>Welcome</h1>
+                    This project exposes the custom XHTML element <i>w3-include-xhtml</i>
+                    as defined by the DTD extension:
+                    <pre>
+                        &lt;!ELEMENT w3-include-xhtml EMPTY&gt;
+                        &lt;!ATTLIST w3-include-xhtml href CDATA #REQUIRED&gt;
+                    </pre>
+                    <p>
+                    The naming scheme is also compatible with <a href="https://www.w3.org/TR/custom-elements/">W3C Custom Elements Proposal</a>,
+                    being incooperated within <a href="https://www.w3.org/TR/dom41/#interface-element">W3C DOM's 4.9 Element</a>.
+                    </p>
+                    <p>
+                    If you see any other text elements besides this text block from <i>Welcome</i>,
+                    the custom XHTML element <i>w3-include-xhtml</i> is operating.
+                    </p>
+                    <p>
+                    In detail, a header <i>HEADER</i>, a sidebar <i>SIDEBAR</i> and a footer <i>FOOTER</i>
+                    shall be visible via three <i>w3-include-xhtml</i> elements.
+                    </p>
+                </div> <!-- text -->
+            </div> <!-- main -->
+            <w3-include-xhtml href="footer-l0-inc.html"/>
+        </div> <!-- container -->
+        <script type="text/javascript">w3_include_xhtml();</script>
+    </body>
+</html>
