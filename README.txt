@@ -9,7 +9,12 @@ as defined by the DTD extension:
 The naming scheme is also compatible with 
 W3C_Custom_Elements_Proposal <https://www.w3.org/TR/custom-elements/>, 
 being incooperated within 
-W3C_DOM's_4.9_Element <https://www.w3.org/TR/dom41/#interface-element>.
+W3C_DOM Spec <https://www.w3.org/TR/dom41/#interface-element>
+and the W3C_HTML_SPEC <https://www.w3.org/TR/html53/semantics-scripting.html#custom-elements-core-concepts>.
+Also see the WHATWG DOM Spec <https://dom.spec.whatwg.org/#interface-element>
+and the WHATWG HTML Spec <https://html.spec.whatwg.org/multipage/custom-elements.html>.
+
+Remaining question: How can we surpass the W3C Markup Validation Service <http://validator.w3.org/>?
 
 If you see any other text elements besides this text block in 'index.html', 
 the custom XHTML element w3-include-xhtml is operating.
