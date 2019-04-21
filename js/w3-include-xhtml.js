@@ -40,18 +40,27 @@ function w3_include_xhtml() {
     if (file) {
       /* prepend a new DIV element, holding XHTML content after reading */
       var divNode = document.createElement("DIV");
-      elmnt.parentNode.insertBefore(divNode,elmnt);
+      if( elmnt.childNodes.length > 0 ) {
+          /* oops: probably used as self closing tag: We keep the faulty element */
+          elmnt.parentNode.insertBefore(divNode,elmnt);
+      } else {
+          /* just replace our tag w/ new div node: No infinitive recursion. */
+          elmnt.parentNode.replaceChild(divNode,elmnt);
+      }
       /* add HTTP request for the XHTML href file */
       xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
-          if (this.status == 404) {
+          if( elmnt.childNodes.length > 0 ) {
+            /* oops: probably used as self closing tag */
+            divNode.innerHTML = "<b>Error: Tag has child-nodes, probably used as self-closing tag:<br/><pre>w3-include-xhtml href=\""+file+"\"</pre></b><br/>";
+            /* remove the href attribute, avoiding infinite recursion */ 
+            elmnt.removeAttribute("href");
+          } else if (this.status == 404) {
             divNode.innerHTML = "Page not found.";
           } else if (this.status == 200) {
             divNode.innerHTML = this.responseText;
           }
-          /* remove the href attribute, avoiding infinite recursion */ 
-          elmnt.removeAttribute("href");
           /* semi-recursive over new DOM */
           w3_include_xhtml();
         }

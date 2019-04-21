@@ -13,10 +13,10 @@
 
     <body>
         <div id="container">
-            <w3-include-xhtml href="header-l0-inc.html"/>
+            <w3-include-xhtml href="header-l0-inc.html"></w3-include-xhtml>
 
             <div id="main">
-                <w3-include-xhtml href="sidebar-l0-inc.html"/>
+                <w3-include-xhtml href="sidebar-l0-inc.html"></w3-include-xhtml>
 
                 <div id="text">
                     <h1>Welcome</h1>
@@ -26,12 +26,23 @@
                         &lt;!ELEMENT w3-include-xhtml EMPTY&gt;
                         &lt;!ATTLIST w3-include-xhtml href CDATA #REQUIRED&gt;
                     </pre>
+                    Example:
+                    <pre>
+                        &lt;w3-include-xhtml href="header-l0-inc.html"&gt;&lt;/w3-include-xhtml&gt;
+                    </pre>
                     <p>
                     The naming scheme is also compatible with <a href="https://www.w3.org/TR/custom-elements/">W3C Custom Elements Proposal</a>,<br/>
                     being incooperated within <a href="https://www.w3.org/TR/dom41/#interface-element">W3C DOM Spec</a>
                     and the <a href="https://www.w3.org/TR/html53/semantics-scripting.html#custom-elements-core-concepts">W3C HTML Spec</a>.<br/>
                     Also see the <a href="https://dom.spec.whatwg.org/#interface-element">WHATWG DOM Spec</a>
                     and the <a href="https://html.spec.whatwg.org/multipage/custom-elements.html">WHATWG HTML Spec</a>
+                    </p>
+                    <p>
+                    You must <i>not</i> use the custom tag in a <i>self-closing</i> manner,
+                    since the spec seemingly only allows <i>build-in</i> types to be <i>void</i>.<br/>
+                    We will detect whether the node has children attached as if no end tag has been provided
+                    and insert an error message! This has been observed on Firefox when used as <i>self-closing</i>.
+                    See error example at bottom of this page.
                     </p>
                     <p>
                     Remaining question: How can we surpass the <a href="http://validator.w3.org/">W3C Markup Validation Service</a>?
@@ -42,11 +53,23 @@
                     In detail, a header <i>HEADER</i>, a sidebar <i>SIDEBAR</i> and a footer <i>FOOTER</i>
                     shall be visible via three <i>w3-include-xhtml</i> elements.
                     </p>
+                    <p>
                     <h2>License</h2>
                     This work is licensed under the 'New BSD 2-Clause License'.
+                    </p>
+                    <p>
+                    <br/>
+                    <hr/>
+                    <br/>
+                    The faulty example using self-closing:<br/>
+                    <pre>
+                        &lt;w3-include-xhtml href="error-self-closing-non-existant-file.html"/&gt;
+                    </pre>
+                    <w3-include-xhtml href="error-self-closing-non-existant-file.html"/>
+                    </p>
                 </div> <!-- text -->
             </div> <!-- main -->
-            <w3-include-xhtml href="footer-l0-inc.html"/>
+            <w3-include-xhtml href="footer-l0-inc.html"></w3-include-xhtml>
         </div> <!-- container -->
         <script type="text/javascript">w3_include_xhtml();</script>
     </body>
